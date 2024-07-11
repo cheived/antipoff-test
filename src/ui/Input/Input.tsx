@@ -14,7 +14,7 @@ const Input: FC<IInput> = ({ error, value, placeholder, onChange, onBlur, onFocu
     return (
         <>
             <div className={clsx("input", cn)}>
-                <div className={clsx("input__wrapper", error && "input__wrapper_error")}>
+                <div className={clsx("input__wrapper", error && "input_error")}>
                     <input
                         type={hide ? "password" : "text"}
                         value={value}
@@ -23,8 +23,8 @@ const Input: FC<IInput> = ({ error, value, placeholder, onChange, onBlur, onFocu
                         onBlur={onBlur}
                         onFocus={onFocus}
                         onKeyDown={onKeyDown}
-                        className={clsx("input__wrapper__field")} />
-                    {type === "password" && <button className={clsx("input__wrapper__hide-button")} onClick={() => toggleHide(state => !state)}><img src="/img/hide.svg" /></button>}
+                        className={clsx("input__field")} />
+                    {type === "password" && <button className={clsx("input__hide-button")} onClick={() => toggleHide(state => !state)}><img src="/img/hide.svg" /></button>}
                 </div>
                 <p className={clsx(
                     "input__text-error",
