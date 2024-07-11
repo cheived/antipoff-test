@@ -1,0 +1,27 @@
+$black: #151317;
+
+.form {
+    max-width: 500px;
+
+    box-sizing: border-box;
+
+    &__main-content {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2.5rem;
+
+        &__item {
+            font-size: 4rem;
+            width: 100%;
+
+            &__title {
+                padding-bottom: 2rem;
+                color: $black
+            }
+        }
+    }
+
+    &__button {
+        width: 100%;
+    }
+}
