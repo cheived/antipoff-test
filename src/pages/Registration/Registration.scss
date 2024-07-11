@@ -1,0 +1,10 @@
+.registration {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+    &__form {
+        flex-grow: 1;
+    }
+}
