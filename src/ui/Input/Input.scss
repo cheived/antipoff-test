@@ -1,0 +1,57 @@
+$gray_light: #F8F8F8;
+$gray: #808185;
+$red: #FF6161;
+
+.input {
+    width: 100%;
+
+    &__wrapper {
+        display: flex;
+        background-color: $gray_light;
+        width: fit-content;
+        gap: 2rem;
+        border-radius: 8px;
+        width: 100%;
+
+        &__field {
+            border-radius: 8px;
+            font-size: 3.5rem;
+            outline: none;
+            background-color: $gray_light;
+            color: $gray;
+            padding: 4rem 2rem 4rem 4rem;
+            border: none;
+            width: 100%;
+
+        }
+
+        &__hide-button {
+            background-color: transparent;
+            border: none;
+        }
+
+        &_error {
+
+            outline-style: solid;
+            outline-color: $red;
+            outline-width: 1px;
+
+        }
+
+
+    }
+
+
+    &__text-error {
+        margin-top: 1rem;
+        color: $red;
+        opacity: 0;
+        font-size: 2.5rem;
+
+
+        &_show {
+            opacity: 1;
+        }
+    }
+
+}
