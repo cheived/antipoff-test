@@ -12,15 +12,18 @@ $red: #FF6161;
         gap: 2rem;
         border-radius: 8px;
         width: 100%;
+        box-sizing: border-box;
+        height: 12rem;
+
+        &_error {
+
+            border-style: solid;
+            border-color: $red;
+            border-width: 1px;
+
+        }
     }
 
-    &_error {
-
-        outline-style: solid;
-        outline-color: $red;
-        outline-width: 1px;
-
-    }
 
     &__hide-button {
         background-color: transparent;
@@ -31,7 +34,7 @@ $red: #FF6161;
     &__field {
         border-radius: 8px;
         font-size: 3.5rem;
-        outline: none;
+        border: none;
         background-color: $gray_light;
         color: $gray;
         padding: 4rem 2rem 4rem 4rem;
@@ -41,20 +44,17 @@ $red: #FF6161;
 
     }
 
-
-
-
     &__text-error {
         margin-top: 1rem;
         color: $red;
-        opacity: 0;
+        // opacity: 0;
         font-size: 2.5rem;
         line-height: 11.72px;
 
 
-        &_show {
-            opacity: 1;
-        }
+        // &_show {
+        //     opacity: 1;
+        // }
     }
 
 }
