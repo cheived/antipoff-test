@@ -14,19 +14,19 @@ const RegistrationForm: FC<IRegistrationForm> = ({ cn }) => {
         <Card cn={clsx("form", cn)} title="Регистрация">
             <form className={clsx("form__main-content")}>
                 <div className="form__item">
-                    <p className="form__item__title">Имя</p>
+                    <p className="form__item-title">Имя</p>
                     <Input placeholder="Артур" />
                 </div>
                 <div className="form__item">
-                    <p className="form__item__title">Электронная почта</p>
-                    <Input placeholder="example@mail.ru" />
+                    <p className="form__item-title">Электронная почта</p>
+                    <Input placeholder="example@mail.ru" error />
                 </div>
                 <div className="form__item" >
-                    <p className="form__item__title">Пароль</p>
+                    <p className="form__item-title">Пароль</p>
                     <Input type="password" />
                 </div >
                 <div className="form__item">
-                    <p className="form__item__title">Подтвердите пароль</p>
+                    <p className="form__item-title">Подтвердите пароль</p>
                     <Input type="password" />
                 </div>
             </form>

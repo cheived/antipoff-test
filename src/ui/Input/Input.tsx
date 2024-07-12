@@ -26,9 +26,10 @@ const Input: FC<IInput> = ({ error, value, placeholder, onChange, onBlur, onFocu
                         className={clsx("input__field")} />
                     {type === "password" && <button className={clsx("input__hide-button")} onClick={() => toggleHide(state => !state)}><img src="/img/hide.svg" /></button>}
                 </div>
-                <p className={clsx(
+                {error && <p className={clsx(
                     "input__text-error",
-                    error && "input__text-error_show",)}>Ошибка</p>
+                    error && "input__text-error_show",)}>Ошибка</p>}
+
             </div>
         </>
     )
