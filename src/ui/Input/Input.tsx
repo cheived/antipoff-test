@@ -1,6 +1,6 @@
 import clsx from "clsx"
 import "./Input.scss"
-import { FC, InputHTMLAttributes, useState } from "react"
+import { FC, InputHTMLAttributes, MouseEvent, useState } from "react"
 
 interface IInput extends InputHTMLAttributes<HTMLInputElement> {
     error?: boolean,
@@ -10,6 +10,11 @@ interface IInput extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input: FC<IInput> = ({ error, value, placeholder, onChange, onBlur, onFocus, onKeyDown, type = "text", cn }) => {
     const [hide, toggleHide] = useState(type === "password");
+
+    function handleHideButton(event: MouseEvent<HTMLElement>) {
+        event.preventDefault()
+        toggleHide(state => !state)
+    }
 
     return (
         <>
@@ -24,7 +29,7 @@ const Input: FC<IInput> = ({ error, value, placeholder, onChange, onBlur, onFocu
                         onFocus={onFocus}
                         onKeyDown={onKeyDown}
                         className={clsx("input__field")} />
-                    {type === "password" && <button className={clsx("input__hide-button")} onClick={() => toggleHide(state => !state)}><img src="/img/hide.svg" /></button>}
+                    {type === "password" && <button className={clsx("input__hide-button")} onClick={(event) => handleHideButton(event)}><img src="/img/hide.svg" /></button>}
                 </div>
                 {error && <p className={clsx(
                     "input__text-error",)}>Ошибка</p>}
