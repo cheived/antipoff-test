@@ -5,6 +5,7 @@ import clsx from "clsx"
 import { Button } from "../../ui/Button"
 import { Input } from "../../ui/Input"
 import { Controller, SubmitHandler, useForm } from "react-hook-form"
+import { register } from "./api/api"
 
 interface IRegistrationForm {
     cn?: string
@@ -28,7 +29,12 @@ const RegistrationForm: FC<IRegistrationForm> = ({ cn }) => {
         }, mode: "onSubmit"
     });
 
-    const onSubmit: SubmitHandler<IFormInput> = data => console.log(data);
+    const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+        const regData = await register(data)
+        if (regData) {
+            localStorage.setItem("user", JSON.stringify(regData))
+        }
+    }
 
     return (
         <Card cn={clsx("form", cn)} title="Регистрация">
