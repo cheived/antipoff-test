@@ -4,33 +4,73 @@ import { Card } from "../../components/Card"
 import clsx from "clsx"
 import { Button } from "../../ui/Button"
 import { Input } from "../../ui/Input"
+import { Controller, SubmitHandler, useForm } from "react-hook-form"
 
 interface IRegistrationForm {
     cn?: string
 }
 
 const RegistrationForm: FC<IRegistrationForm> = ({ cn }) => {
+
+    interface IFormInput {
+        name: string,
+        email: string,
+        password: string,
+        confirmPassword: string
+    }
+
+    const { control, handleSubmit, watch, formState: { errors } } = useForm({
+        defaultValues: {
+            name: '',
+            email: '',
+            password: '',
+            confirmPassword: ''
+        }, mode: "onSubmit"
+    });
+
+    const onSubmit: SubmitHandler<IFormInput> = data => console.log(data);
+
     return (
         <Card cn={clsx("form", cn)} title="Регистрация">
-            <form className={clsx("form__main-content")}>
+            <form className={clsx("form__main-content")} onSubmit={handleSubmit(onSubmit)}>
                 <div className="form__item">
                     <p className="form__item-title">Имя</p>
-                    <Input placeholder="Артур" />
+                    <Controller
+                        name="name"
+                        control={control}
+                        rules={{ required: true }}
+                        render={({ field }) => <Input {...field} error={errors.name && true} />}
+                    />
                 </div>
                 <div className="form__item">
                     <p className="form__item-title">Электронная почта</p>
-                    <Input placeholder="example@mail.ru" error />
+                    <Controller
+                        name="email"
+                        control={control}
+                        rules={{ required: true, pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/ }}
+                        render={({ field }) => <Input {...field} error={errors.email && true} />}
+                    />
                 </div>
                 <div className="form__item" >
                     <p className="form__item-title">Пароль</p>
-                    <Input type="password" />
-                </div >
+                    <Controller
+                        name="password"
+                        control={control}
+                        rules={{ required: true }}
+                        render={({ field }) => <Input type="password" {...field} error={errors.password && true} />}
+                    />
+                </div>
                 <div className="form__item">
                     <p className="form__item-title">Подтвердите пароль</p>
-                    <Input type="password" />
+                    <Controller
+                        name="confirmPassword"
+                        control={control}
+                        rules={{ required: true, validate: (value) => watch("password") === value }}
+                        render={({ field }) => <Input type="password" {...field} error={errors.confirmPassword && true} />}
+                    />
                 </div>
             </form>
-            <Button cn={clsx("form__button")} >Зарегистрироваться</Button>
+            <Button cn={clsx("form__button")} onClick={handleSubmit(onSubmit)} >Зарегистрироваться</Button>
         </Card>
     )
 }
