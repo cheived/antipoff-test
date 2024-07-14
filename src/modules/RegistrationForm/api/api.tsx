@@ -14,7 +14,6 @@ async function register(regData: { email: string, password: string }) {
                     return response.json()
                 }
             })
-        console.log(res)
         return res
     } catch (error) {
         console.error(error)

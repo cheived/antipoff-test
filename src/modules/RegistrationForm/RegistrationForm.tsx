@@ -6,13 +6,16 @@ import { Button } from "../../ui/Button"
 import { Input } from "../../ui/Input"
 import { Controller, SubmitHandler, useForm } from "react-hook-form"
 import { register } from "./api/api"
+import useAuth from "../../hooks/useAuth"
+import { useNavigate } from "react-router-dom"
 
 interface IRegistrationForm {
     cn?: string
 }
 
 const RegistrationForm: FC<IRegistrationForm> = ({ cn }) => {
-
+    const navigate = useNavigate()
+    const login = useAuth(state => state.login)
     interface IFormInput {
         name: string,
         email: string,
@@ -32,7 +35,9 @@ const RegistrationForm: FC<IRegistrationForm> = ({ cn }) => {
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         const regData = await register(data)
         if (regData) {
-            localStorage.setItem("user", JSON.stringify(regData))
+            login(regData)
+            console.log(regData)
+            navigate("/")
         }
     }
 
