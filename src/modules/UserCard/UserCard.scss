@@ -9,8 +9,11 @@ $black: #151317;
     flex-direction: column;
     gap: 4rem;
     align-items: center;
-
     border-radius: 10px;
+
+    &:hover {
+        outline: 1px solid black;
+    }
 
     &__name {
         color: $black;

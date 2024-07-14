@@ -7,4 +7,10 @@
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+
+    &_visible {
+        opacity: 1;
+    }
 }

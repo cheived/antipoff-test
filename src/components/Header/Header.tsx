@@ -2,18 +2,27 @@ import { FC } from "react"
 import { Button } from "../../ui/Button"
 import "./Header.scss"
 import clsx from "clsx"
+import useAuth from "../../hooks/useAuth"
+import { useNavigate } from "react-router-dom"
 
 interface IHeader {
     children: React.ReactElement,
-    cn: string
+    cn?: string,
+    left?: string,
 }
 
-const Header: FC<IHeader> = ({ children, cn }) => {
+const Header: FC<IHeader> = ({ children, cn, left }) => {
+    const { logout } = useAuth()
+    const navigate = useNavigate();
+    function handleLogout() {
+        logout()
+        navigate("/registration")
+    }
     return (
         <header className={clsx("header", cn)}>
-            <Button cn="header__button-left" outlined>12345</Button>
+            {left && <Button cn="header__button-left" outlined>Назад</Button>}
             {children}
-            <Button cn="header__button-right" outlined>12345</Button>
+            <Button cn="header__button-right" outlined onClick={() => handleLogout()}>Выход</Button>
         </header>
     )
 }

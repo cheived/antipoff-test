@@ -1,0 +1,72 @@
+.user-info {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+
+    &_visible {
+        opacity: 1;
+    }
+
+    &__main-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 32px;
+        margin: 39px 0px 39px 29px;
+    }
+
+    &__title-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+    }
+
+    &__description {
+        color: black;
+        width: 630px;
+        // white-space: ;
+    }
+
+    &__description-wrapper {
+        margin: 49px 188px;
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    &__email {
+        color: black;
+    }
+
+    &__phone {
+        color: black;
+    }
+
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 24px
+    }
+
+    &__phone-number-wrapper {
+        display: flex;
+        height: min-content;
+        gap: 8px
+    }
+
+    &__email-wrapper {
+        display: flex;
+        height: min-content;
+        gap: 8px;
+    }
+
+    &__email-icon {
+        width: 24px;
+
+    }
+
+    &__phone-icon {
+        width: 24px;
+    }
+}

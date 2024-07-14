@@ -1,22 +1,32 @@
-import { useEffect, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import { UserCard } from "../UserCard"
 import fetchUsers from "./api/fetchUsers"
-import UsersResponse from "./types/UsersResponse";
+// import UsersResponse from "./types/UsersResponse";
 import './UserList.scss'
+import IUser from "../../types/user";
+import clsx from "clsx";
 
-const UserList = () => {
-    const [users, setUsers] = useState<UsersResponse>();
+
+interface IUserList {
+    offset: number
+}
+
+
+const UserList: FC<IUserList> = ({ offset }) => {
+    const [users, setUsers] = useState<IUser[]>([]);
     useEffect(() => {
         const getUsers = async () => {
-            setUsers(await fetchUsers())
+            const users = (await fetchUsers(offset))?.data || []
+            setUsers((state) => [...state, ...users])
+            console.log("get users")
         }
         getUsers()
-    }, [])
+    }, [offset])
     return (
-        <section className="user-list">
-            {users && users.data.map(item => {
+        <section className={clsx("user-list", users.length > 0 && "user-list_visible")}>
+            {users && users.map(item => {
                 return (
-                    <UserCard {...item} />
+                    <UserCard key={Math.floor(Math.random() * 1000) + 1} {...item} />
                 )
             })}
 
