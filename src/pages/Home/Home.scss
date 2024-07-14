@@ -1,0 +1,22 @@
+.home {
+    &__header {
+        justify-content: center;
+    }
+
+    &__title-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+        align-items: center;
+        flex-grow: 1;
+        margin: 16rem 0px;
+    }
+
+    &__h2 {
+        max-width: 846px;
+    }
+
+
+
+
+}

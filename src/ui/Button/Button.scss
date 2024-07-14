@@ -1,4 +1,5 @@
 $violet: #512689;
+$gray_light: #F8F8F8;
 
 .button {
     display: flex;
@@ -10,4 +11,11 @@ $violet: #512689;
     border: none;
     border-radius: 2rem;
     padding: 3rem 4rem;
+
+    &_outlined {
+        border: 1px, solid, $gray_light;
+        padding: 2rem 4rem;
+        background-color: transparent;
+        height: fit-content;
+    }
 }

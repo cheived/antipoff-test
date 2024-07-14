@@ -1,0 +1,16 @@
+$violet: #512689;
+
+.header {
+    background-color: $violet;
+    // padding: 8rem 20rem;
+    display: flex;
+
+    &__button-left {
+        margin: 8rem 0rem 0rem 20rem;
+    }
+
+    &__button-right {
+        margin: 8rem 20rem 0rem 0rem;
+        margin-left: auto;
+    }
+}

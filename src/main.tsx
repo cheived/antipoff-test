@@ -4,6 +4,7 @@ import './index.scss'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Registration from './pages/Registration/Registration.tsx'
 import PrivatePage from './pages/PrivatePage/PrivatePage.tsx'
+import Home from './pages/Home/Home.tsx'
 
 
 const router = createBrowserRouter([{
@@ -12,7 +13,7 @@ const router = createBrowserRouter([{
 },
 {
   path: "/",
-  element: <PrivatePage element={<div>private</div>} />
+  element: <PrivatePage element={<Home />} />
 },
 {
   path: "/registration",
