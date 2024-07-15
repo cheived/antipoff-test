@@ -10,6 +10,7 @@ import { Provider } from 'react-redux'
 import store from './store/store.ts'
 
 
+
 const router = createBrowserRouter([{
   path: "*",
   element: <div>Not Found</div>
@@ -23,19 +24,15 @@ const router = createBrowserRouter([{
   element: <Registration />
 },
 {
-  path: "/user",
-  element: <UserInfo />
-},
-{
   path: "/users/:userId",
-  element: <UserInfo />
+  element: <PrivatePage element={<UserInfo />} />
 }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  // <React.StrictMode>
-  <Provider store={store}>
-    <RouterProvider router={router} />
-  </Provider>
-  // </React.StrictMode>,
+  <React.StrictMode>
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  </React.StrictMode>,
 )
