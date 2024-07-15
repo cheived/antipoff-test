@@ -8,6 +8,7 @@ import Home from './pages/Home/Home.tsx'
 import UserInfo from './pages/UserInfo/UserInfo.tsx'
 import { Provider } from 'react-redux'
 import store from './store/store.ts'
+import Login from './pages/Login/Login.tsx'
 
 
 
@@ -26,6 +27,10 @@ const router = createBrowserRouter([{
 {
   path: "/users/:userId",
   element: <PrivatePage element={<UserInfo />} />
+},
+{
+  path: "/login",
+  element: <Login />
 }
 ])
 

@@ -20,4 +20,5 @@ async function register(regData: { email: string, password: string }) {
     }
 }
 
+
 export { register }

@@ -1,6 +1,6 @@
 @use "src/styles/globals";
 
-.reg-form {
+.login-form {
     max-width: 500px;
     box-sizing: border-box;
 
@@ -24,7 +24,7 @@
         width: 100%;
     }
 
-    &__login-link {
+    &__reg-link {
         display: block;
         width: fit-content;
         margin: 3rem auto 0 auto;

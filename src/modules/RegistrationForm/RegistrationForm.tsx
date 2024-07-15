@@ -5,8 +5,8 @@ import clsx from "clsx"
 import { Button } from "../../ui/Button"
 import { Input } from "../../ui/Input"
 import { Controller, SubmitHandler, useForm } from "react-hook-form"
-import { register } from "./api/api"
-import { useNavigate } from "react-router-dom"
+import { register } from "../../api/api"
+import { Link, useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { setUser } from "../../store/userSlice"
 
@@ -14,17 +14,16 @@ interface IRegistrationForm {
     cn?: string
 }
 
-interface IFormInput {
-    name: string,
-    email: string,
-    password: string,
-    confirmPassword: string
-}
-
 
 const RegistrationForm: FC<IRegistrationForm> = ({ cn }) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    interface IFormInput {
+        name: string,
+        email: string,
+        password: string,
+        confirmPassword: string
+    }
 
     useEffect(() => {
         alert("Регистрация по почте - eve.holt@reqres.in")
@@ -50,10 +49,10 @@ const RegistrationForm: FC<IRegistrationForm> = ({ cn }) => {
     }
 
     return (
-        <Card cn={clsx("form", cn)} title="Регистрация">
-            <form className={clsx("form__main-content")} onSubmit={handleSubmit(onSubmit)}>
-                <div className="form__item">
-                    <p className="form__item-title">Имя</p>
+        <Card cn={clsx("reg-form", cn)} title="Регистрация">
+            <form className={clsx("reg-form__main-content")} onSubmit={handleSubmit(onSubmit)}>
+                <div className="reg-form__item">
+                    <p className="reg-form__item-title">Имя</p>
                     <Controller
                         name="name"
                         control={control}
@@ -61,8 +60,8 @@ const RegistrationForm: FC<IRegistrationForm> = ({ cn }) => {
                         render={({ field }) => <Input {...field} error={errors.name?.message} />}
                     />
                 </div>
-                <div className="form__item">
-                    <p className="form__item-title">Электронная почта</p>
+                <div className="reg-form__item">
+                    <p className="reg-form__item-title">Электронная почта</p>
                     <Controller
                         name="email"
                         control={control}
@@ -70,8 +69,8 @@ const RegistrationForm: FC<IRegistrationForm> = ({ cn }) => {
                         render={({ field }) => <Input {...field} error={errors.email?.message} />}
                     />
                 </div>
-                <div className="form__item" >
-                    <p className="form__item-title">Пароль</p>
+                <div className="reg-form__item" >
+                    <p className="reg-form__item-title">Пароль</p>
                     <Controller
                         name="password"
                         control={control}
@@ -79,8 +78,8 @@ const RegistrationForm: FC<IRegistrationForm> = ({ cn }) => {
                         render={({ field }) => <Input type="password" {...field} error={errors.password?.message} />}
                     />
                 </div>
-                <div className="form__item">
-                    <p className="form__item-title">Подтвердите пароль</p>
+                <div className="reg-form__item">
+                    <p className="reg-form__item-title">Подтвердите пароль</p>
                     <Controller
                         name="confirmPassword"
                         control={control}
@@ -89,7 +88,8 @@ const RegistrationForm: FC<IRegistrationForm> = ({ cn }) => {
                     />
                 </div>
             </form>
-            <Button cn={clsx("form__button")} onClick={handleSubmit(onSubmit)} >Зарегистрироваться</Button>
+            <Button cn={clsx("reg-form__button")} onClick={handleSubmit(onSubmit)} >Зарегистрироваться</Button>
+            <Link className="reg-form__login-link" to={"/login"}>Зарегистрированы? Войти!</Link>
         </Card>
     )
 }
