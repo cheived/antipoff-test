@@ -1,14 +1,17 @@
 import clsx from "clsx"
-import { FC } from "react"
+import { FC, MouseEventHandler } from "react"
 import "./LikeButton.scss"
 interface ILikeButton {
     cn?: string,
+    checked?: boolean,
+    onClick?: MouseEventHandler<HTMLButtonElement>,
+    disabled?: boolean
 }
 
-const LikeButton: FC<ILikeButton> = ({ cn }) => {
+const LikeButton: FC<ILikeButton> = ({ cn, onClick, disabled = false, checked = false }) => {
     return (
-        <button className={clsx("likeButton", cn)}>
-            <img src="/img/like_outline.svg" />
+        <button disabled={disabled} onClick={onClick} className={clsx("likeButton", cn)}>
+            <img src={checked ? "/img/ic_like_checked.svg" : "/img/ic_like.svg"} />
         </button>
     )
 }
