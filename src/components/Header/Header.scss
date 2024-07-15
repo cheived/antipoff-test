@@ -1,13 +1,13 @@
-$violet: #512689;
+@use "src/styles/globals";
 
 .header {
-    background-color: $violet;
+    background-color: globals.$violet;
     display: flex;
     flex-direction: column;
     height: 265px;
     padding: 8rem 20rem 0rem 20rem;
     position: relative;
-    // width: 100%;
+
 
     &__button-wrapper {
         display: flex;
@@ -17,9 +17,6 @@ $violet: #512689;
 
     &__button-back {
         display: none;
-        // position: absolute;
-        // top: 8rem;
-        // left: 20rem;
 
         &_show {
             display: flex;
@@ -28,37 +25,24 @@ $violet: #512689;
 
     &__button-exit {
         margin-left: auto;
-        // position: absolute;
-        // top: 8rem;
-        // right: 20rem;
     }
 
     &__button-exit-icon {
         display: none;
         margin-left: auto;
-        // position: absolute;
-        // top: 8rem;
-        // right: 20rem;
     }
 
     &__button-back-icon {
         display: none;
-        // position: absolute;
-        // top: 8rem;
-        // left: 20rem;
-
     }
 
     @media(max-width: 1000px) {
-        padding: 12px 16px 0px 16px;
+        padding: 3rem 4rem 0px 4rem;
         height: auto;
-        gap: 6px;
+        gap: 1.5rem;
 
 
-        &__button-exit {
-            display: none;
-        }
-
+        &__button-exit,
         &__button-back {
             display: none;
         }
@@ -66,15 +50,10 @@ $violet: #512689;
 
         &__button-exit-icon {
             display: inline-block;
-            // top: 12px;
-            // right: 16px;
-
         }
 
         &__button-back-icon {
             display: none;
-            // top: 12px;
-            // left: 16px;
 
             &_show {
                 display: inline-block;

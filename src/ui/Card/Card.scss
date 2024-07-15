@@ -1,13 +1,13 @@
-$black: #151317;
+@use "src/styles/globals";
 
 .card {
     background-color: white;
     padding: 4rem;
     border-radius: 4rem;
-    box-shadow: 0px 1rem 5rem 0px #00000014;
+    box-shadow: 0 1rem 5rem 0 #00000014;
 
     &__card-title {
-        color: $black;
+        color: globals.$black;
         font-size: 5rem;
         line-height: 23.44px;
         margin: 0 0 4rem 0;

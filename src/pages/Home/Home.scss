@@ -1,4 +1,4 @@
-$black: #151317;
+@use "src/styles/globals";
 
 .home {
     &__header {
@@ -11,9 +11,7 @@ $black: #151317;
         gap: 4rem;
         height: 100%;
         align-items: center;
-        // justify-content: center;
         flex-grow: 1;
-        // margin: 16rem 0px;
     }
 
     &__h1 {
@@ -28,16 +26,28 @@ $black: #151317;
     &__more-button {
         margin-left: auto;
         margin-right: auto;
-        margin-top: 56px;
-        color: $black;
-        border-color: $black;
+        margin-top: 14rem;
+        color: globals.$black;
+        border-color: globals.$black;
     }
 
     @media (max-width: 1000px) {
         &__title-wrapper {
-            margin: 0px 0px 64px 0px;
+            margin: 0 0 16rem 0;
         }
 
+    }
+
+    @media (max-width:600px) {
+        &__h1 {
+            font-size: 9rem;
+            line-height: 42.19px;
+        }
+
+        &__h2 {
+            font-size: 4rem;
+            line-height: 18.75px;
+        }
     }
 
 }

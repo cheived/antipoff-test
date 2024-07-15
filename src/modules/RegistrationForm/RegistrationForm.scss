@@ -1,25 +1,21 @@
-$black: #151317;
+@use "src/styles/globals";
 
 .form {
     max-width: 500px;
-
     box-sizing: border-box;
 
     &__main-content {
         display: flex;
         flex-direction: column;
-        // margin-bottom: 2.5rem;
         gap: 4rem;
         margin-bottom: 6rem;
     }
-
-    &__item {}
 
     &__item-title {
         font-size: 4rem;
         width: 100%;
         line-height: 21.79px;
-        color: $black;
+        color: globals.$black;
         margin: 0 0 2rem 0;
     }
 

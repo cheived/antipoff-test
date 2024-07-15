@@ -8,41 +8,33 @@
 
     &__main-info {
         display: flex;
-        // justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        gap: 32px;
+        gap: 8rem;
         margin-left: 88px;
-        // margin: 64px 0px;
-        // margin: 39px 0px 39px 29px;
     }
 
     &__title-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 4rem;
 
     }
 
     &__description {
         color: black;
         width: 630px;
-        // white-space: ;
     }
 
     &__description-wrapper {
         margin: 49px 188px;
         display: flex;
-        // justify-content: space-between;
         max-width: 950px;
-        gap: 32px
+        gap: 8rem;
     }
 
+    &__phone,
     &__email {
-        color: black;
-    }
-
-    &__phone {
         color: black;
         text-wrap: nowrap;
     }
@@ -50,41 +42,48 @@
     &__contacts {
         display: flex;
         flex-direction: column;
-        gap: 24px
+        gap: 6rem;
     }
 
     &__phone-number-wrapper {
         display: flex;
         height: min-content;
-        gap: 8px
+        gap: 2rem
     }
 
     &__email-wrapper {
         display: flex;
         height: min-content;
-        gap: 8px;
+        gap: 2rem;
     }
 
-    &__email-icon {
-        width: 24px;
-
-    }
-
+    &__email-icon,
     &__phone-icon {
-        width: 24px;
+        width: 6rem;
+
+    }
+
+    &__avatar-upload {
+        margin-left: 88px;
+        margin-top: 2rem;
+    }
+
+    &__position {
+        font-size: 9rem;
+        line-height: 37.5px;
     }
 
     @media (max-width: 1200px) {
         &__description-wrapper {
-            margin: 32px auto;
+            margin: 8rem auto;
         }
     }
 
     @media (max-width: 1000px) {
         &__description-wrapper {
-            gap: 32px;
+            gap: 8rem;
             flex-direction: column-reverse;
-            margin: 32px 16px;
+            margin: 8rem 4rem;
         }
 
         &__description {
@@ -95,7 +94,7 @@
             flex-direction: column-reverse;
             flex-grow: 1;
             margin-left: 0;
-            margin-bottom: 64px;
+            margin-bottom: 16rem;
         }
 
         &__name {
@@ -108,5 +107,16 @@
 
     }
 
+    @media (max-width:600px) {
+        &__name {
+            font-size: 9rem;
+            line-height: 42.19px;
+        }
+
+        &__position {
+            font-size: 5rem;
+            line-height: 23.44px;
+        }
+    }
 
 }

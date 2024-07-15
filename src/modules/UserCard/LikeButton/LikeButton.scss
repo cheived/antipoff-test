@@ -1,8 +1,8 @@
-$gray_light: #F8F8F8;
+@use "src/styles/globals";
 
 .likeButton {
     outline: none;
     border: none;
     border-radius: 1rem;
-    background-color: $gray_light;
+    background-color: globals.$gray_light;
 }

@@ -1,16 +1,15 @@
-$gray_light: #F8F8F8;
-$gray: #808185;
-$red: #FF6161;
+@use "src/styles/globals";
+
 
 .input {
     width: 100%;
 
     &__wrapper {
         display: flex;
-        background-color: $gray_light;
+        background-color: globals.$gray_light;
         width: fit-content;
         gap: 2rem;
-        border-radius: 8px;
+        border-radius: 2rem;
         width: 100%;
         box-sizing: border-box;
         height: 12rem;
@@ -18,7 +17,7 @@ $red: #FF6161;
         &_error {
 
             border-style: solid;
-            border-color: $red;
+            border-color: globals.$red;
             border-width: 1px;
 
         }
@@ -32,11 +31,11 @@ $red: #FF6161;
     }
 
     &__field {
-        border-radius: 8px;
+        border-radius: 2rem;
         font-size: 3.5rem;
         outline: none;
-        background-color: $gray_light;
-        color: $gray;
+        background-color: globals.$gray_light;
+        color: globals.$gray;
         padding: 4rem 0rem 4rem 4rem;
         border: none;
         width: 100%;
@@ -46,15 +45,9 @@ $red: #FF6161;
 
     &__text-error {
         margin: 1rem 0 0 0;
-        color: $red;
-        // opacity: 0;
+        color: globals.$red;
         font-size: 2.5rem;
         line-height: 11.72px;
-
-
-        // &_show {
-        //     opacity: 1;
-        // }
     }
 
 }
