@@ -5,8 +5,11 @@ interface IUserSlice {
     user: { id: number, token: string } | null,
 }
 
+const user = localStorage.getItem("user")
+const userParsed = user ? JSON.parse(user) : null
+
 const initialState: IUserSlice = {
-    user: JSON.parse(localStorage.getItem("user")) || null,
+    user: userParsed,
     isAuthenticated: !!localStorage.getItem("user"),
 };
 
@@ -27,5 +30,6 @@ const userSlice = createSlice({
     },
 });
 
+export type { IUserSlice }
 export const { setUser, logout } = userSlice.actions;
 export default userSlice.reducer;
