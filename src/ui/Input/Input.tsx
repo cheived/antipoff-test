@@ -3,7 +3,7 @@ import "./Input.scss"
 import { FC, InputHTMLAttributes, MouseEvent, useState } from "react"
 
 interface IInput extends InputHTMLAttributes<HTMLInputElement> {
-    error?: boolean,
+    error?: string,
     cn?: string
 }
 
@@ -29,10 +29,10 @@ const Input: FC<IInput> = ({ error, value, placeholder, onChange, onBlur, onFocu
                         onFocus={onFocus}
                         onKeyDown={onKeyDown}
                         className={clsx("input__field")} />
-                    {type === "password" && <button className={clsx("input__hide-button")} onClick={(event) => handleHideButton(event)}><img src="/img/hide.svg" /></button>}
+                    {type === "password" && <button className={clsx("input__hide-button")} onClick={(event) => handleHideButton(event)}><img src="/img/ic_hide.svg" /></button>}
                 </div>
                 {error && <p className={clsx(
-                    "input__text-error",)}>Ошибка</p>}
+                    "input__text-error",)}>{error}</p>}
             </div>
         </>
     )
