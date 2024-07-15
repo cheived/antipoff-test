@@ -26,7 +26,7 @@ const UserList: FC<IUserList> = ({ offset }) => {
         <section className={clsx("user-list", users.length > 0 && "user-list_visible")}>
             {users && users.map(item => {
                 return (
-                    <UserCard key={Math.floor(Math.random() * 1000) + 1} {...item} />
+                    <UserCard key={item.id} {...item} />
                 )
             })}
 

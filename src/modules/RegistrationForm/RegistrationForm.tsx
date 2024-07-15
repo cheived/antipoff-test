@@ -6,8 +6,9 @@ import { Button } from "../../ui/Button"
 import { Input } from "../../ui/Input"
 import { Controller, SubmitHandler, useForm } from "react-hook-form"
 import { register } from "./api/api"
-import useAuth from "../../hooks/useAuth"
 import { useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { setUser } from "../../store/userSlice"
 
 interface IRegistrationForm {
     cn?: string
@@ -15,7 +16,7 @@ interface IRegistrationForm {
 
 const RegistrationForm: FC<IRegistrationForm> = ({ cn }) => {
     const navigate = useNavigate()
-    const login = useAuth(state => state.login)
+    const dispatch = useDispatch()
     interface IFormInput {
         name: string,
         email: string,
@@ -35,7 +36,8 @@ const RegistrationForm: FC<IRegistrationForm> = ({ cn }) => {
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         const regData = await register(data)
         if (regData) {
-            login(regData)
+            dispatch(setUser(regData))
+            // login(regData)
             console.log(regData)
             navigate("/")
         }

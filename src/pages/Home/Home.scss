@@ -9,9 +9,11 @@ $black: #151317;
         display: flex;
         flex-direction: column;
         gap: 4rem;
+        height: 100%;
         align-items: center;
+        // justify-content: center;
         flex-grow: 1;
-        margin: 16rem 0px;
+        // margin: 16rem 0px;
     }
 
     &__h1 {
@@ -31,5 +33,11 @@ $black: #151317;
         border-color: $black;
     }
 
+    @media (max-width: 1000px) {
+        &__title-wrapper {
+            margin: 0px 0px 64px 0px;
+        }
+
+    }
 
 }

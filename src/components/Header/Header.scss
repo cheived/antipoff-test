@@ -2,15 +2,83 @@ $violet: #512689;
 
 .header {
     background-color: $violet;
-    // padding: 8rem 20rem;
     display: flex;
+    flex-direction: column;
+    height: 265px;
+    padding: 8rem 20rem 0rem 20rem;
+    position: relative;
+    // width: 100%;
 
-    &__button-left {
-        margin: 8rem 0rem 0rem 20rem;
+    &__button-wrapper {
+        display: flex;
+        justify-content: space-between;
     }
 
-    &__button-right {
-        margin: 8rem 20rem 0rem 0rem;
+
+    &__button-back {
+        display: none;
+        // position: absolute;
+        // top: 8rem;
+        // left: 20rem;
+
+        &_show {
+            display: flex;
+        }
+    }
+
+    &__button-exit {
         margin-left: auto;
+        // position: absolute;
+        // top: 8rem;
+        // right: 20rem;
+    }
+
+    &__button-exit-icon {
+        display: none;
+        margin-left: auto;
+        // position: absolute;
+        // top: 8rem;
+        // right: 20rem;
+    }
+
+    &__button-back-icon {
+        display: none;
+        // position: absolute;
+        // top: 8rem;
+        // left: 20rem;
+
+    }
+
+    @media(max-width: 1000px) {
+        padding: 12px 16px 0px 16px;
+        height: auto;
+        gap: 6px;
+
+
+        &__button-exit {
+            display: none;
+        }
+
+        &__button-back {
+            display: none;
+        }
+
+
+        &__button-exit-icon {
+            display: inline-block;
+            // top: 12px;
+            // right: 16px;
+
+        }
+
+        &__button-back-icon {
+            display: none;
+            // top: 12px;
+            // left: 16px;
+
+            &_show {
+                display: inline-block;
+            }
+        }
     }
 }

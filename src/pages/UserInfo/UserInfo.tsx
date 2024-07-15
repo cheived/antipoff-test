@@ -30,8 +30,8 @@ const UserInfo = () => {
                 <div className="user-info__main-info">
                     <Avatar cn="user-info__avatar" src={user?.avatar} width={178} height={178} />
                     <div className="user-info__title-wrapper">
-                        <h1>{user?.first_name + " " + user?.last_name}</h1>
-                        <h2>Партнер</h2>
+                        <h1 className="user-info__name">{user?.first_name + " " + user?.last_name}</h1>
+                        <h2 className="user-info__position">Партнер</h2>
                     </div>
                 </div>
             </Header >
