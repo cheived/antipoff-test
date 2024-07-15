@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC, useEffect } from "react"
 import "./RegistrationForm.scss"
 import { Card } from "../../ui/Card"
 import clsx from "clsx"
@@ -14,15 +14,21 @@ interface IRegistrationForm {
     cn?: string
 }
 
+interface IFormInput {
+    name: string,
+    email: string,
+    password: string,
+    confirmPassword: string
+}
+
+
 const RegistrationForm: FC<IRegistrationForm> = ({ cn }) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    interface IFormInput {
-        name: string,
-        email: string,
-        password: string,
-        confirmPassword: string
-    }
+
+    useEffect(() => {
+        alert("Регистрация по почте - eve.holt@reqres.in")
+    }, [])
 
     const { control, handleSubmit, watch, formState: { errors } } = useForm({
         defaultValues: {
@@ -51,8 +57,8 @@ const RegistrationForm: FC<IRegistrationForm> = ({ cn }) => {
                     <Controller
                         name="name"
                         control={control}
-                        rules={{ required: true }}
-                        render={({ field }) => <Input {...field} error={errors.name && true} />}
+                        rules={{ required: "Это поле обязательно", }}
+                        render={({ field }) => <Input {...field} error={errors.name?.message} />}
                     />
                 </div>
                 <div className="form__item">
@@ -60,8 +66,8 @@ const RegistrationForm: FC<IRegistrationForm> = ({ cn }) => {
                     <Controller
                         name="email"
                         control={control}
-                        rules={{ required: true, pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/ }}
-                        render={({ field }) => <Input {...field} error={errors.email && true} />}
+                        rules={{ required: "Это поле обязательно", pattern: { value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, message: "Введите корректный адрес электронной почты" } }}
+                        render={({ field }) => <Input {...field} error={errors.email?.message} />}
                     />
                 </div>
                 <div className="form__item" >
@@ -69,8 +75,8 @@ const RegistrationForm: FC<IRegistrationForm> = ({ cn }) => {
                     <Controller
                         name="password"
                         control={control}
-                        rules={{ required: true }}
-                        render={({ field }) => <Input type="password" {...field} error={errors.password && true} />}
+                        rules={{ required: "Это поле обязательно" }}
+                        render={({ field }) => <Input type="password" {...field} error={errors.password?.message} />}
                     />
                 </div>
                 <div className="form__item">
@@ -78,8 +84,8 @@ const RegistrationForm: FC<IRegistrationForm> = ({ cn }) => {
                     <Controller
                         name="confirmPassword"
                         control={control}
-                        rules={{ required: true, validate: (value) => watch("password") === value }}
-                        render={({ field }) => <Input type="password" {...field} error={errors.confirmPassword && true} />}
+                        rules={{ required: "Это поле обязательно", validate: (value) => watch("password") === value ? true : "Пароли должны совпадать" }}
+                        render={({ field }) => <Input type="password" {...field} error={errors.confirmPassword?.message} />}
                     />
                 </div>
             </form>
