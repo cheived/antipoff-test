@@ -18,6 +18,7 @@
     &__button-back {
         display: none;
 
+
         &_show {
             display: flex;
         }
@@ -30,10 +31,12 @@
     &__button-exit-icon {
         display: none;
         margin-left: auto;
+        cursor: pointer;
     }
 
     &__button-back-icon {
         display: none;
+        cursor: pointer;
     }
 
     @media(max-width: 1000px) {
