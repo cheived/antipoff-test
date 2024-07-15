@@ -18,7 +18,7 @@ const Home = () => {
                 </div>
             </Header>
             <UserList offset={offset} />
-            <Button outlined cn={clsx("home__more-button")} onClick={() => setOffset(state => state + 1)}>Показать ещё</Button>
+            {offset < 2 && <Button outlined cn={clsx("home__more-button")} onClick={() => setOffset(state => state + 1)}>Показать ещё</Button>}
         </div>
 
 
