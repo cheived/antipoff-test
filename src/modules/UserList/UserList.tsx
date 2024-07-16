@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from "react"
 import { UserCard } from "../UserCard"
 import fetchUsers from "./api/fetchUsers"
-// import UsersResponse from "./types/UsersResponse";
 import './UserList.scss'
 import IUser from "../../types/user";
 import clsx from "clsx";
@@ -18,7 +17,6 @@ const UserList: FC<IUserList> = ({ offset }) => {
         const getUsers = async () => {
             const users = (await fetchUsers(offset))?.data || []
             setUsers((state) => [...state, ...users])
-            console.log("get users")
         }
         getUsers()
     }, [offset])

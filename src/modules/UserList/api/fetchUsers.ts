@@ -9,10 +9,9 @@ async function fetchUsers(page: number) {
                     return res.json()
                 }
             })
-        console.log(123)
         return users
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
 

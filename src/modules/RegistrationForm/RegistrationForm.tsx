@@ -5,7 +5,7 @@ import clsx from "clsx"
 import { Button } from "../../ui/Button"
 import { Input } from "../../ui/Input"
 import { Controller, SubmitHandler, useForm } from "react-hook-form"
-import { register } from "../../api/api"
+import { register } from "../../api/register"
 import { Link, useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { setUser } from "../../store/userSlice"
@@ -42,8 +42,6 @@ const RegistrationForm: FC<IRegistrationForm> = ({ cn }) => {
         const regData = await register(data)
         if (regData) {
             dispatch(setUser(regData))
-            // login(regData)
-            console.log(regData)
             navigate("/")
         }
     }

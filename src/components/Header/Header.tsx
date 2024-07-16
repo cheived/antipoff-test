@@ -18,7 +18,6 @@ const Header: FC<IHeader> = ({ children, cn, left }) => {
     const navigate = useNavigate();
     function handleLogout() {
         dispatch(logout())
-        // logout()
         navigate("/registration")
     }
     return (

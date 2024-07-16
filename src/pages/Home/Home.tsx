@@ -1,6 +1,5 @@
 import clsx from "clsx"
 import { Header } from "../../components/Header"
-// import { UserCard } from "../../modules/UserCard"
 import { UserList } from "../../modules/UserList"
 import { Button } from "../../ui/Button"
 import "./Home.scss"
