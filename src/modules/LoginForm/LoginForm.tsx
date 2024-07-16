@@ -51,7 +51,7 @@ const LoginForm: FC<ILoginForm> = ({ cn }) => {
                     <Controller
                         name="email"
                         control={control}
-                        rules={{ required: "Это поле обязательно", pattern: { value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, message: "Введите корректный адрес электронной почты" } }}
+                        rules={{ required: "Это поле обязательно", pattern: { value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, message: "Введите корректный адрес электронной почты" }, validate: (value) => value === "eve.holt@reqres.in" ? true : "Для тестового входа используйте почту eve.holt@reqres.in" }}
                         render={({ field }) => <Input {...field} error={errors.email?.message} />}
                     />
                 </div>
